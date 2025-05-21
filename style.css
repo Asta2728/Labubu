@@ -1,0 +1,864 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fce4ec; /* Нежно-розовый фон */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Baloo 2', cursive;
+    color: #d84315; /* Коралловый акцент */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff8a80; /* Более насыщенный розовый */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: pulse 2s infinite; /* Анимация пульсации */
+}
+
+.btn:hover {
+    background-color: #ff5252;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+    animation: none; /* Остановить пульсацию при наведении */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Это анимация слайдшоу для фоновых изображений */
+@keyframes slideShow {
+    0% { background-image: url('images/hero_labubu1.jpg'); }
+    25% { background-image: url('images/hero_labubu1.jpg'); }
+    26% { background-image: url('images/hero_labubu2.jpg'); }
+    50% { background-image: url('images/hero_labubu2.jpg'); }
+    51% { background-image: url('images/hero_labubu3.jpg'); }
+    75% { background-image: url('images/hero_labubu3.jpg'); }
+    76% { background-image: url('images/hero_labubu1.jpg'); }
+    100% { background-image: url('images/hero_labubu1.jpg'); }
+}
+
+
+/* Header */
+.header {
+    background-color: #f8bbd0; /* Светло-розовый */
+    padding: 10px 0;
+    border-bottom: 2px solid #f06292;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    animation: slideInFromTop 0.8s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding: 0 20px;
+    min-height: 60px;
+    flex-wrap: nowrap; /* Важно: не переносить строки, чтобы кнопка была на уровне */
+}
+
+.header-content > div { /* Контейнер для site-title и site-slogan */
+    display: flex;
+    flex-direction: column; /* По умолчанию в столбец, меняется на десктопе */
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.site-title {
+    font-size: 1.6em; /* Уменьшаем базовый размер заголовка */
+    margin: 0;
+    color: #ad1457;
+    white-space: normal; /* Разрешаем перенос строки по умолчанию */
+    text-align: left;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.site-slogan {
+    display: block;
+    font-size: 0.8em;
+    color: #6a1b9a;
+    text-align: left;
+    margin-top: 2px;
+    line-height: 1.3;
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* Main Navigation (for PC) */
+.main-nav {
+    flex-grow: 0;
+    text-align: right;
+    margin: 0;
+    display: block; /* По умолчанию видима */
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #6a1b9a;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #4fc3f7;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-list a.active-link::after,
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.nav-list a:hover {
+    color: #880e4f;
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none; /* Hidden on PC */
+    font-size: 1.8em;
+    color: #ad1457;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 5px;
+    align-self: center;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    background-color: #fce4ec;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 998;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.mobile-nav.open {
+    display: block;
+}
+
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-list li {
+    border-bottom: 1px solid #f8bbd0;
+}
+
+.mobile-nav-list li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-list a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #6a1b9a;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav-list a:hover {
+    background-color: #f8bbd0;
+}
+
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: slideShow 15s infinite ease-in-out;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slider-image.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(252, 228, 236, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    animation: fadeIn 2s ease-out;
+}
+
+.hero-title {
+    font-size: 3.5em;
+    color: #ad1457;
+    margin-bottom: 15px;
+    animation: fadeIn 1.5s ease-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-text {
+    font-size: 1.3em;
+    color: #444;
+    margin-bottom: 30px;
+    animation: fadeIn 1.8s ease-out;
+}
+
+.scroll-btn {
+    margin-top: 20px;
+}
+
+/* About Section */
+.about-section {
+    background-color: #fff;
+    padding: 60px 0;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.about-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1em;
+    color: #444;
+}
+
+.proofs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.proof-item {
+    background-color: #e0f2f7;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeIn 1.8s ease-out;
+}
+
+.proof-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+.proof-item h3 {
+    color: #01579b;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.proof-item p {
+    font-size: 0.95em;
+    color: #666;
+    text-align: left;
+}
+
+.proof-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* New: Product Types Section */
+.product-types-section {
+    background-color: #f1f8e9; /* Светло-зеленый фон */
+    padding: 60px 0;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.type-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.type-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+.type-item h3 {
+    color: #388e3c; /* Темно-зеленый */
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.type-item p {
+    font-size: 0.95em;
+    color: #666;
+    text-align: left;
+}
+
+.type-item img {
+    max-width: 100%;
+    height: 200px; /* Фиксированная высота для примеров */
+    object-fit: contain; /* Сохраняем пропорции, чтобы изображение полностью помещалось */
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #f0f0f0; /* Для изображений с прозрачным фоном */
+}
+
+.type-note {
+    margin-top: 40px;
+    font-style: italic;
+    color: #777;
+}
+
+/* Products Section */
+.products-section {
+    padding: 60px 0;
+    background-color: #fef1f8;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.preorder-note {
+    background-color: #fff8e1;
+    border: 1px solid #ffcc80;
+    padding: 15px 25px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.1em;
+    color: #8d6e63;
+    line-height: 1.5;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    animation: fadeIn 1.5s ease-out;
+}
+
+.preorder-note strong {
+    color: #e65100;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeIn 1.5s ease-out backwards;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ad1457;
+}
+
+.product-info p {
+    font-size: 1.1em;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal.show {
+    display: flex;
+    animation: fadeInModal 0.3s forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOutModal {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    animation: scaleIn 0.3s forwards cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-image-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-image.active {
+    display: block;
+    opacity: 1;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 2em;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+#modal-title {
+    font-size: 2.2em;
+    color: #ad1457;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#modal-price {
+    font-size: 1.8em;
+    color: #d84315;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#modal-description {
+    font-size: 1.1em;
+    color: #555;
+    text-align: justify;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#modal-whatsapp-btn {
+    margin-top: 20px;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-whatsapp-btn .fab {
+    font-size: 22px;
+    margin-right: 8px;
+}
+
+/* Fixed WhatsApp Button */
+.fixed-whatsapp-btn {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366; /* WhatsApp Green */
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 2s infinite;
+    font-size: 35px;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.fixed-whatsapp-btn:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    animation: none;
+}
+
+/* Responsive adjustments */
+
+/* Десктопные стили */
+@media (min-width: 1025px) {
+    .header-content {
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: nowrap;
+    }
+    .header-content > div { /* Контейнер для site-title и site-slogan */
+        flex-direction: column; /* Теперь и на десктопе в столбец */
+        align-items: flex-start;
+        flex-grow: 1;
+        gap: 0; /* Убираем зазор, если текст сам переносится */
+    }
+    .site-title {
+        font-size: 2.2em;
+        white-space: normal; /* Разрешаем перенос */
+        flex-shrink: 0;
+        margin-right: 0;
+        text-align: left; /* Выравнивание по левому краю */
+    }
+    .site-slogan {
+        font-size: 1em;
+        white-space: normal; /* Разрешаем перенос */
+        margin-top: 5px; /* Небольшой отступ от заголовка */
+        flex-grow: 0;
+        flex-basis: auto;
+        text-align: left; /* Выравнивание по левому краю */
+    }
+    .main-nav {
+        display: block;
+        flex-grow: 0;
+    }
+    .mobile-menu-toggle {
+        display: none;
+    }
+    .header-content {
+        padding: 0 30px;
+    }
+}
+
+/* Планшеты и средние экраны */
+@media (max-width: 1024px) {
+    .main-nav {
+        display: none;
+    }
+    .mobile-menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+    .header-content {
+        justify-content: space-between;
+        padding: 0 20px;
+        flex-wrap: nowrap;
+    }
+    .header-content > div {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 1;
+        min-width: 0;
+    }
+    .site-title {
+        font-size: 1.5em;
+        white-space: normal;
+        text-align: left;
+        flex-basis: auto;
+        word-break: break-word;
+        line-height: 1.2;
+    }
+    .site-slogan {
+        display: block;
+        font-size: 0.8em;
+        white-space: normal;
+        text-align: left;
+        margin-top: 2px;
+        flex-basis: auto;
+        word-break: break-word;
+        line-height: 1.3;
+    }
+
+    .hero-title { font-size: 2.5em; }
+    .hero-text { font-size: 1.1em; }
+}
+
+/* Мобильные телефоны */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px 15px;
+    }
+
+    .site-title {
+        font-size: 1.3em;
+        white-space: normal;
+        flex-grow: 1;
+        min-width: 0;
+    }
+    
+    .hero-title { font-size: 2em; }
+    .hero-text { font-size: 0.95em; }
+
+    .site-slogan {
+        font-size: 0.7em;
+        white-space: normal;
+        flex-grow: 1;
+        min-width: 0;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    .proofs-grid {
+        grid-template-columns: 1fr;
+    }
+    .types-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    .modal-image-carousel {
+        height: 250px;
+    }
+    .carousel-arrow {
+        font-size: 1.5em;
+        padding: 8px 12px;
+    }
+    #modal-title { font-size: 1.6em; }
+    #modal-price { font-size: 1.3em; }
+    #modal-description { font-size: 0.9em; }
+    #modal-whatsapp-btn { font-size: 0.9em; padding: 10px 15px; }
+    #modal-whatsapp-btn .fab { font-size: 18px; margin-right: 5px; }
+
+    .fixed-whatsapp-btn {
+        display: flex;
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+
+/* Очень узкие мобильные устройства (дополнительная подстройка) */
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.1em;
+    }
+    .site-slogan {
+        font-size: 0.65em;
+    }
+    .hero-title { font-size: 1.6em; }
+    .btn { padding: 8px 16px; font-size: 0.85em; }
+    .proof-item { padding: 15px; }
+    .product-card { padding: 10px; }
+    .mobile-menu-toggle {
+        padding: 3px;
+        font-size: 1.6em;
+    }
+}

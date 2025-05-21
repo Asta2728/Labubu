@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оригинальные игрушки Labubu из Кореи</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div>
+                <h1 class="site-title">Твой уголок милых Labubu!</h1>
+                <p class="site-slogan">100% Оригинальные игрушки Labubu из Кореи</p>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="scroll-link">Главная</a></li>
+                    <li><a href="#about" class="scroll-link">Оригинал</a></li>
+                    <li><a href="#product-types" class="scroll-link">Виды игрушек</a></li>
+                    <li><a href="#products" class="scroll-link">Коллекция</a></li>
+                    <li><a href="#order" class="scroll-link">Заказать</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li><a href="#hero" class="scroll-link mobile-link">Главная</a></li>
+                <li><a href="#about" class="scroll-link mobile-link">Оригинал</a></li>
+                <li><a href="#product-types" class="scroll-link mobile-link">Виды игрушек</a></li>
+                <li><a href="#products" class="scroll-link mobile-link">Коллекция</a></li>
+                <li><a href="#order" class="scroll-link mobile-link">Заказать</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-slider">
+            <div class="slider-image active" style="background-image: url('images/hero_labubu1.jpg');"></div>
+            <div class="slider-image" style="background-image: url('images/hero_labubu2.jpg');"></div>
+            <div class="slider-image" style="background-image: url('images/hero_labubu3.jpg');"></div>
+        </div>
+        <div class="hero-overlay">
+            <div class="container">
+                <h2 class="hero-title">Открой мир оригинальных Labubu!</h2>
+                <p class="hero-text">Погрузись в волшебство коллекционных фигурок прямо сейчас.</p>
+                <a href="#products" class="btn scroll-btn">Смотреть товары</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Наши Labubu – исключительно оригинал!</h2>
+            <p class="about-description">Мы гарантируем подлинность каждой игрушки Labubu, привезенной напрямую из Кореи. Ваша коллекция заслуживает лучшего!</p>
+
+            <div class="proofs-grid">
+                <div class="proof-item">
+                    <h3>QR-коды на упаковке</h3>
+                    <p>Каждая игрушка поставляется с оригинальным QR-кодом, который можно сканировать для проверки подлинности через официальные приложения.</p>
+                    <img src="images/qr_proof.jpg" alt="Пример QR-кода">
+                </div>
+                <div class="proof-item">
+                    <h3>Качество упаковки</h3>
+                    <p>Обратите внимание на безупречное качество и детализацию оригинальной упаковки, а также на наличие всех голограмм и серийных номеров.</p>
+                    <img src="images/packaging_proof.jpg" alt="Пример оригинальной упаковки">
+                </div>
+                <div class="proof-item">
+                    <h3>Прямые поставки из Кореи</h3>
+                    <p>Мы работаем только с проверенными поставщиками в Корее, обеспечивая чистоту и подлинность каждой фигурки Labubu.</p>
+                    <img src="images/korea_proof.jpg" alt="Сертификат или документ поставки">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-types" class="product-types-section">
+        <div class="container">
+            <h2>Какие бывают Labubu?</h2>
+            <p class="section-description">Мир Labubu богат разнообразием. Чтобы вам было проще выбирать, мы делим игрушки на два основных типа:</p>
+
+            <div class="types-grid">
+                <div class="type-item">
+                    <h3>Явные фигурки (Known Figures)</h3>
+                    <p>Это игрушки, у которых вы точно знаете, какая фигурка находится внутри упаковки. Они продаются без элемента случайности, и вы получаете именно то, что видите на картинке. Идеально для тех, кто ищет конкретного персонажа для своей коллекции.</p>
+                    <img src="images/known_figure_example.jpg" alt="Пример явной фигурки Labubu">
+                </div>
+                <div class="type-item">
+                    <h3>Коробочные серии (Blind Boxes)</h3>
+                    <p>Это закрытые, запечатанные коробки из серии. Вы не знаете, какая именно фигурка Labubu находится внутри, пока не откроете коробку. Это добавляет элемент сюрприза и азарта! В каждой серии есть редкие (Secret) и очень редкие (Chase) фигурки.</p>
+                    <img src="images/blind_box_example.jpg" alt="Пример коробочной серии Labubu">
+                </div>
+            </div>
+            <p class="section-description type-note">
+                На нашем сайте вы найдете описание для каждого типа товара, чтобы вы могли легко выбрать то, что подходит именно вам.
+            </p>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Наша коллекция Labubu</h2>
+            <p class="section-description">Познакомьтесь с каждой уникальной фигуркой из серии Coca-Cola!</p>
+            <p class="preorder-note">
+                Хотите что-то особенное? Мы можем привезти <strong>любые игрушки Labubu под заказ</strong>! <br>
+                Цена может варьироваться в зависимости от редкости и актуального курса. Свяжитесь с нами для уточнения деталей.
+            </p>
+
+            <div class="product-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="order" class="order-section">
+        <div class="container">
+            <h2>Как заказать</h2>
+            <p>Чтобы приобрести понравившуюся игрушку, просто нажмите кнопку "Смотреть подробнее" на карточке товара. Во всплывающем окне вы найдёте кнопку для связи с нами в WhatsApp. Мы оперативно ответим на все ваши вопросы и поможем оформить заказ!</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Твой магазин Labubu. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-carousel">
+                    <button class="carousel-arrow prev-arrow">&lsaquo;</button>
+                    <button class="carousel-arrow next-arrow">&rsaquo;</button>
+                </div>
+                <h3 id="modal-title"></h3>
+                <p id="modal-price"></p>
+                <p id="modal-description"></p>
+                <a id="modal-whatsapp-btn" href="https://wa.me/77019829400" target="_blank" class="btn">
+                    <i class="fab fa-whatsapp"></i> Заказать через WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/77019829400" target="_blank" class="fixed-whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
